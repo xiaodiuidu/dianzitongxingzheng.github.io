@@ -1,37 +1,69 @@
-## Welcome to GitHub Pages
-
-You can use the [editor on GitHub](https://github.com/xiaodiuidu/dianzitongxingzheng.github.io/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/xiaodiuidu/dianzitongxingzheng.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>电子通行证</title>
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      width: 100%;
+      height: 100%;
+      background: url('./wepback.jpeg');
+      background-size: 100%;
+      background-repeat: no-repeat;
+    }
+    #date {
+      font-size: 32px;
+      position: absolute;
+      text-align: center;
+      top: 200px;
+      width: 100%;
+    }
+    #time {
+      font-size: 32px;
+      position: absolute;
+      text-align: center;
+      top: 248px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div id="date"></div>
+    <div id="time"></div>
+  </div>
+</body>
+<script>
+  window.onload = function () {
+    var date = document.getElementById('date');
+    var time = document.getElementById('time');
+    setInterval(() => {
+      var now = new Date();
+      var month = now.getMonth() + 1;
+      var day = now.getDate();
+      var hour = now.getHours();
+      var minute = now.getMinutes();
+      var second = now.getSeconds();
+      if (hour < 10) {
+        hour = '0' + hour;
+      }
+      if (minute < 10) {
+        minute = '0' + minute;
+      }
+      if (second < 10) {
+        second = '0' + second;
+      }
+      date.innerHTML = month + '月' + day + '日';
+      time.innerHTML = hour + ':' + minute + ':' + second;
+    }, 1000)
+  }
+</script>
+</html>
